@@ -1,0 +1,252 @@
+---
+title: "Mi primer tablero"
+output: 
+  flexdashboard::flex_dashboard:
+    theme: spacelab
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+# Install thematic and un-comment for themed static plots (i.e., ggplot2)
+# thematic::thematic_rmd()
+```
+```{r}
+library(paqueteMET)     
+data("CarreraLuz22")
+```
+# **INDICADORES DE PARTICIPANTES** 
+
+column {data-width=300}
+---------------------------------------------------------------
+
+### **TOTAL DE ATLETAS PARTICIPANTES**
+
+```{r}
+valueBox(1922,icon= "fa-pencil", col="pink")
+```
+### **ATLETAS MUJERES EN LA CARRERA**
+
+```{r}
+data1=subset(CarreraLuz22, CarreraLuz22$sex=="Mujer")
+```
+
+```{r}
+valueBox(744,icon= "fa-pencil", col="white")
+```
+
+### **ATLETAS HOMBRES EN LA CARRERA**
+
+```{r}
+data2=subset(CarreraLuz22, CarreraLuz22$sex=="Hombre")
+```
+
+```{r}
+valueBox(1178,icon= "fa-pencil", col="pink")
+```
+
+column {data-width=700}{.tabset}
+---------------------------------------------------------------
+
+### ATLETAS POR CATEGORIA Y GENERO
+
+```{r}
+Conteo <- table(CarreraLuz22$sex,CarreraLuz22$categoria)
+barplot(Conteo, 
+        main="ATLETAS POR CATEGORIA Y GENERO",
+        xlab="Categorías",
+        col=c("#0000FC","#FF1493"),
+        legend = rownames(Conteo),
+        las=1, ylim = c(0,1200),
+        names.arg=c("Juvenil","Abierta","Veteranos A","Veteranos B","Veteranos
+                    C"))
+```
+
+### CATEGORIAS PARTICIPANTES
+
+```{r}
+data("CarreraLuz22")
+t1=table(CarreraLuz22$categoria)
+pie(t1,col = c("#00FFFF","#9932CC","#FF3030","#FA8072","#00FF00"),
+    main = "CATEGORIAS DE ATLETAS PARTICIPANTES")
+```
+
+### EDAD PARTICIPANTES HOMBRES Y MUJERES
+
+```{r}
+Conteo1 <- table(CarreraLuz22$edad)
+barplot(Conteo1, 
+        main="EDAD ATLETAS HOMBRES Y MUJERES",
+        xlab="EDAD",
+        col=c("#7FFF00","#FF1493"),
+        legend = rownames(Conteo),
+        las=0, ylim = c(0,100),
+        names.arg=c("AÑOS"))
+```         
+
+# **INDICADORES DE CARRERA** 
+
+columns {data-width=300}
+---------------------------------------------------------------
+
+### **KILOMETROS A RECORRER EN LA CARRERA**
+
+```{r}
+valueBox(10,icon= "fa-pencil", col="pink")
+```
+
+### **MEJOR TIEMPO (MINUTOS) DE LA CARRERA**
+
+```{r}
+min(CarreraLuz22$timerun/60)
+```
+
+```{r}
+valueBox(0,icon= "fa-pencil", col="white")
+```
+
+### **TIEMPO (MINUTOS) PROMEDIO DE LA CARRERA**
+
+```{r}
+mean(CarreraLuz22$timerun/60)
+```
+```{r}
+valueBox(0,icon= "fa-pencil", col="pink")
+```
+columns{data-width=700}{.tabset}
+-----------------------------------------------------------
+
+### **TIEMPO (MINUTOS) DE LA CARRERA POR CATEGORIA**
+
+### CATEGORIA ABIERTA MUJERES
+
+```{r}
+data3=subset(CarreraLuz22, (CarreraLuz22$sex=="Mujer" & CarreraLuz22$categoria=="2. Abierta")) 
+x=data3$timerun/60
+hist(x, xlim=c(10,100), las=1,
+main = "DISTRIBUCIÓN TIEMPOS MUJERES CAT. ABIERTA",
+xlab="Tiempo (min)",
+ylab = "Frecuencia",
+col ="#FF1493")
+```
+
+### CATEGORIA ABIERTA HOMBRES
+
+```{r}
+data4=subset(CarreraLuz22, (CarreraLuz22$sex=="Hombre" & CarreraLuz22$categoria=="2. Abierta")) 
+x=data4$timerun/60
+hist(x, xlim=c(10,100), las=1,
+main = "DISTRIBUCIÓN TIEMPOS HOMBRES CAT. ABIERTA",
+xlab="Tiempo (min)",
+ylab = "Frecuencia",
+col ="#0000FF")
+```
+
+### CATEGORIA VETERANAS A MUJERES
+
+```{r}
+data5=subset(CarreraLuz22, (CarreraLuz22$sex=="Mujer" & CarreraLuz22$categoria=="3. Veteranos A")) 
+x=data5$timerun/60
+hist(x, xlim=c(10,100), las=1,
+main = "DISTRIBUCIÓN TIEMPOS MUJERES CAT. VETERANAS A",
+xlab="Tiempo (min)",
+ylab = "Frecuencia",
+col ="#9932CC")
+```
+
+### CATEGORIA VETERANOS A HOMBRES
+
+```{r}
+data6=subset(CarreraLuz22, (CarreraLuz22$sex=="Hombre" & CarreraLuz22$categoria=="3. Veteranos A")) 
+x=data6$timerun/60
+hist(x, xlim=c(10,100), las=1,
+main = "DISTRIBUCIÓN TIEMPOS HOMBRES CAT. VETERANOS A",
+xlab="Tiempo (min)",
+ylab = "Frecuencia",
+col ="#7FF00F")
+```
+
+### CATEGORIA VETERANAS B MUJERES
+
+```{r}
+data7=subset(CarreraLuz22, (CarreraLuz22$sex=="Mujer" & CarreraLuz22$categoria=="4. Veteranos B")) 
+x=data7$timerun/60
+hist(x, xlim=c(10,100), las=1,
+main = "DISTRIBUCIÓN TIEMPOS MUJERES CAT. VETERANAS B",
+xlab="Tiempo (min)",
+ylab = "Frecuencia",
+col ="#FF7F50")
+```
+
+### CATEGORIA VETERANOS B HOMBRES
+
+```{r}
+data8=subset(CarreraLuz22, (CarreraLuz22$sex=="Hombre" & CarreraLuz22$categoria=="4. Veteranos B")) 
+x=data8$timerun/60
+hist(x, xlim=c(10,100), las=1,
+main = "DISTRIBUCIÓN TIEMPOS HOMBRES CAT. VETERANOS B",
+xlab="Tiempo (min)",
+ylab = "Frecuencia",
+col ="#8B4500")
+```
+
+### CATEGORIA VETERANAS C MUJERES
+
+```{r}
+data9=subset(CarreraLuz22, (CarreraLuz22$sex=="Mujer" & CarreraLuz22$categoria=="5. Veteranos C")) 
+x=data9$timerun/60
+hist(x, xlim=c(10,100), las=1,
+main = "DISTRIBUCIÓN TIEMPOS MUJERES CAT. VETERANAS C",
+xlab="Tiempo (min)",
+ylab = "Frecuencia",
+col ="#FF3030")
+```
+
+### CATEGORIA VETERANOS C HOMBRES
+
+```{r}
+data10=subset(CarreraLuz22, (CarreraLuz22$sex=="Hombre" & CarreraLuz22$categoria=="5. Veteranos C")) 
+x=data10$timerun/60
+hist(x, xlim=c(10,100), las=1,
+main = "DISTRIBUCIÓN TIEMPOS HOMBRES CAT. VETERANOS C",
+xlab="Tiempo (min)",
+ylab = "Frecuencia",
+col ="#8B795E")
+```
+
+### CATEGORIA JUVENIL HOMBRES
+
+```{r}
+data12=subset(CarreraLuz22, (CarreraLuz22$sex=="Hombre" & CarreraLuz22$categoria=="1. Juvenil")) 
+x=data12$timerun/60
+hist(x, xlim=c(10,100), las=1,
+main = "DISTRIBUCIÓN TIEMPOS HOMBRES CAT. JUVENIL",
+xlab="Tiempo (min)",
+ylab = "Frecuencia",
+col ="#00FF7F")
+``` 
+
+# **OTROS INDICADORES DE LA CARRERA Y PARTICIPANTES**
+
+column {data-width=100}{.tabset}
+---------------------------------------------------------------
+
+### **ESTADISTICAS CARRERA**
+
+```{r}
+summary(CarreraLuz22)
+```
+### **EDADES POR ATLETAS - RANGOS**
+
+```{r}
+breaks=c(10,18,40,50,60,80)
+Edad.Atletas.por.Rangos=cut(CarreraLuz22$edad, breaks)
+table(Edad.Atletas.por.Rangos)
+```
+
+### **EDADES POR CATEGORIA**
+
+```{r}
+table(CarreraLuz22$categoria, CarreraLuz22$edad)
+```
