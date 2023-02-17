@@ -278,7 +278,7 @@ summary(CarreraLuz22)
 <span style="color:orange">
 *Juvenil Hombres la concentración se encuentra alrededor de los 40 y 60 Minutos y alrededor de los 70 y 80 Minutos.*
 
-<span style="color:black">
+<span style="color:green">
 *En cuanto a la edad de los percipientes el limite inferior corresponde a participantes de la categoría Juvenil con 15 años y la edad de los participantes más longevos es de 76 años,, el promedio de edad de los participantes es de 37 años.*
 
 ### **EDADES POR ATLETAS - RANGOS**
