@@ -258,7 +258,7 @@ summary(CarreraLuz22)
 <span style="color:grey">
 *Abierta Mujer la concentración se encuentra alrededor de los 50 y 90 Minutos.*
 
-<span style="color:orange">
+<span style="color:red">
 *Veteranas A la concentración se encuentra alrededor de los 60 y 70 Minutos.*
 
 <span style="color:grey">
