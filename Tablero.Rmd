@@ -16,9 +16,12 @@ library(flexdashboard)
 library(paqueteMET)     
 data("CarreraLuz22")
 ```
+<span style="color:red">
+*_En octubre de 2022 se corrió la carrera de la Luz siendo un recorrido de 10 kilómetros de competencia, contando con 1922 participantes en 10 categorías por edad y sexo. ( Juvenil, Abierta, Veteranos A, Veteranos B y Veteranos C para hombre y mujeres).En el siguiente tablero se econtrara informacion estadistica de los participantes, carrera y genero._*
+
 # **INDICADORES DE PARTICIPANTES** 
 
-column {data-width=300}
+column {data-width=200}
 ---------------------------------------------------------------
 
 ### **TOTAL DE ATLETAS PARTICIPANTES**
@@ -46,7 +49,7 @@ data2=subset(CarreraLuz22, CarreraLuz22$sex=="Hombre")
 valueBox(1178,icon= "fa-pencil", col="pink")
 ```
 
-column {data-width=700}{.tabset}
+column {data-width=800}{.tabset}
 ---------------------------------------------------------------
 
 ### ATLETAS POR CATEGORIA Y GENERO
@@ -87,7 +90,7 @@ barplot(Conteo1,
 
 # **INDICADORES DE CARRERA** 
 
-columns {data-width=300}
+columns {data-width=200}
 ---------------------------------------------------------------
 
 ### **KILOMETROS A RECORRER EN LA CARRERA**
@@ -114,7 +117,7 @@ mean(CarreraLuz22$timerun/60)
 ```{r}
 valueBox(0,icon= "fa-pencil", col="pink")
 ```
-columns{data-width=700}{.tabset}
+columns{data-width=800}{.tabset}
 -----------------------------------------------------------
 
 ### **TIEMPO (MINUTOS) DE LA CARRERA POR CATEGORIA**
@@ -237,6 +240,47 @@ column {data-width=100}{.tabset}
 ```{r}
 summary(CarreraLuz22)
 ```
+
+### **ANALISIS DE ESTADISTICAS CARRERA**
+<span style="color:purple">
+*-De los corredores participantes de la carrera el 39% corresponde a atletas del género femenino y el 61% corresponde a atletas del género masculino.*
+
+<span style="color:blue">
+*La categoría de mayor participación corresponde a “Categoría Abierta” con cerca de 1.200 atletas, luego la “Categoría Veteranos A” con cerca de 400 Atletas. Es importante mencionar que en la “Categoría Abierta” mas del 50% de los participantes son del género masculino.*
+
+<span style="color:green">
+*En medición de tiempos de duración de la carrera,  el menor tiempo fue de 33 Minutos y el mayor tiempo fue de 166 Minutos, en promedio los corredores tardaron 65 Minutos en la carrera, en cuanto a las categorías se comportan en los siguientes rangos:*
+
+<span style="color:orange">
+*Abierta Hombre la concentración se encuentra alrededor de los 50 y 70 Minutos.*
+
+<span style="color:grey">
+*Abierta Mujer la concentración se encuentra alrededor de los 50 y 90 Minutos.*
+
+<span style="color:orange">
+*Veteranas A la concentración se encuentra alrededor de los 60 y 70 Minutos.*
+
+<span style="color:grey">
+*Veteranos A la concentración se encuentra alrededor de los 50 y 70 Minutos.*
+
+<span style="color:orange">
+*Veteranas B la concentración se encuentra alrededor de los 60 y 70 Minutos y alrededor de los 80 y 90 Minutos.*
+
+<span style="color:grey">
+*Veteranos B la mayor concentración se encuentra alrededor de los 50 y 70 Minutos.*
+
+<span style="color:orange">
+*Veteranas C la concentración se encuentra alrededor de los 50 Minutos.*
+
+<span style="color:grey">
+*Veteranos C la concentración se encuentra alrededor de los 40 y 80 Minutos.*
+
+<span style="color:orange">
+*Juvenil Hombres la concentración se encuentra alrededor de los 40 y 60 Minutos y alrededor de los 70 y 80 Minutos.*
+
+<span style="color:blue">
+*En cuanto a la edad de los percipientes el limite inferior corresponde a participantes de la categoría Juvenil con 15 años y la edad de los participantes más longevos es de 76 años,, el promedio de edad de los participantes es de 37 años.*
+
 ### **EDADES POR ATLETAS - RANGOS**
 
 ```{r}
@@ -249,4 +293,5 @@ table(Edad.Atletas.por.Rangos)
 
 ```{r}
 table(CarreraLuz22$categoria, CarreraLuz22$edad)
+
 ```
