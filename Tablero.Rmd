@@ -242,10 +242,11 @@ summary(CarreraLuz22)
 ```
 
 ### **ANALISIS DE ESTADISTICAS CARRERA**
+
 <span style="color:purple">
 *-De los corredores participantes de la carrera el 39% corresponde a atletas del género femenino y el 61% corresponde a atletas del género masculino.*
 
-<span style="color:blue">
+<span style="color:red">
 *La categoría de mayor participación corresponde a “Categoría Abierta” con cerca de 1.200 atletas, luego la “Categoría Veteranos A” con cerca de 400 Atletas. Es importante mencionar que en la “Categoría Abierta” mas del 50% de los participantes son del género masculino.*
 
 <span style="color:green">
@@ -266,7 +267,7 @@ summary(CarreraLuz22)
 <span style="color:orange">
 *Veteranas B la concentración se encuentra alrededor de los 60 y 70 Minutos y alrededor de los 80 y 90 Minutos.*
 
-<span style="color:grey">
+<span style="color:green">
 *Veteranos B la mayor concentración se encuentra alrededor de los 50 y 70 Minutos.*
 
 <span style="color:orange">
@@ -295,3 +296,4 @@ table(Edad.Atletas.por.Rangos)
 table(CarreraLuz22$categoria, CarreraLuz22$edad)
 
 ```
+"PRUEBA"
